@@ -6,67 +6,70 @@
 
 - 修改 添加数据 S save(S entity)
 
-- 分页查询 Page<S> findAll(Example<S> example, Pageable pageable)
+- 分页查询 Page  findAll(Example  example, Pageable pageable)
 
-- 根据实体类属性查询： findByProperty (type Property); 例如：findByAge(int age)
+- ```
+  Page<Customer> findAllByCustIdLikeAndCustNameLike(String custId, String custName, Pageable pageable);
+  ```
 
-- 删除 void delete(T entity)
+-   根据实体类属性查询： findByProperty (type Property); 例如：findByAge(int age)
 
-- 计数 查询 long count() 或者 根据某个属性的值查询总数 countByAge(int age)
+-   删除 void delete(T entity)
 
-- 是否存在  boolean existsById(ID primaryKey) 
+-   计数 查询 long count() 或者 根据某个属性的值查询总数 countByAge(int age)
+
+-   是否存在  boolean existsById(ID primaryKey) 
 
 
 **2.查询关键字**  
 
-> -and
+> **and**
 >
 > And 例如： findByCustNameAndCustLevel(String custName, String custLevel);
 >
-> -or
+> **or**
 >
 > Or 例如： findByCustNameOrCustPhone(String custName, String custPhone);
 >
-> -between
+> **between**
 >
 > Between 例如：CustLevelBetween(int max, int min); //客户等级在min和max之间
 >
-> -"<"
+> **"<"**
 >
 > LessThan 例如： findByCustLevelLessThan(int max);  //  <
 >
-> -">"
+> **">"**
 >
 > GreaterThan 例如： findBySalaryGreaterThan(int min);
 >
-> -like
+> **like**
 >
 > Like 例如： findByUsernameLikeAndUserageLike(String user,String userage);
 >
-> -not like
+> **not like**
 >
 > NotLike 例如： findByUsernameNotLike(String user);
 >
-> -"!="
+> **"!="**
 >
 > Not 例如： findByUsernameNot(String user);
 >
-> -in
+> **in**
 >
 > In 例如： findByUsernameIn(Collection<String> userList) ，方法的参数可以是 Collection 类型，也可以是数组或者不定长参数；
 >
-> -order by
+> **order by**
 >
 > OrderBy 例如： findByUsernameOrderByNameAsc(String user);直接通过name正序排序
 >
-> -not in
+> **not in**
 >
 > NotIn 例如： findByUsernameNotIn(Collection<String> userList) ，方法的参数可以是 Collection 类型，也可以是数组或者不定长参数；
 >
-> 
 
 ```
--Top/Limit
+Top/Limit
 
 查询方法结果的数量可以通过关键字来限制，first 或者 top都可以使用。top/first加数字可以指定要返回最大结果的大小 默认为1
 

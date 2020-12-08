@@ -26,6 +26,10 @@ public interface CustomerRepository extends JpaRepository<Customer, String> {
     List<Customer> findByCustLevelLessThan(int max);  //  <
 
     List<Customer> findByCustLevelGreaterThan(int min);
+
+
+
+
     /**
      * 分页查询
      * @param custId
