@@ -39,6 +39,8 @@ public class Customer {
      *
      * @ManyToOne(cascade = CascadeType.PERSIST)	//表示多方
      * @JoinColumn(name ="role_id") //维护一个外键
+     *
+     * @Transient //额外字段不在数据库中
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
